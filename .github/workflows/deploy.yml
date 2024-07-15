@@ -18,6 +18,6 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SOURCE: "./"  # Le répertoire source contenant vos fichiers
-        REMOTE_HOST: "slategrey-dinosaur-203820.hostingersite.com/"  # Remplacez par votre hôte FTP
+        REMOTE_HOST: "slategrey-dinosaur-203820.hostingersite.com"  # Remplacez par votre hôte FTP
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
         TARGET: "/public_html"
