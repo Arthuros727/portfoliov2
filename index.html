@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protected Page</title>
+    <title>Fusée en Vol</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="index.js"></script>
-    <div id="protectedContent" style="display: none;">
-        <h1>okdac</h1>
-        <!-- Your protected content goes here -->
+    <div class="container">
+
+        <div class="name">
+            <p><span>A</span><span>r</span><span>t</span><span>h</span><span>u</span><span>r </span> <span> </span><span>G</span><span>u</span><span>e</span><span>r</span><span>i</span><span>n</span></p>
+        </div>
+        <div class="status">
+            <p>a propo de moi</p>
+            <!-- <p>mes projets</p>
+            <p>mon futur</p> -->
+        </div>
+        <div class="icon">
+            <a href="https://github.com/Arthuros727" target="_blank">
+                <img src="githubo.png" alt="github">
+            </a>
+            <span class="separator"></span>
+            <img src="mail.png" alt="mail">
+        </div>
     </div>
+
+  <script>
+    // JavaScript to handle individual animations
+    const spans = document.querySelectorAll('.name p span');
+
+    spans.forEach(span => {
+      span.addEventListener('mouseover', function() {
+        span.style.animation = 'roll 0.5s forwards';
+      });
+
+      span.addEventListener('animationend', function() {
+        span.style.animation = '';
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,23 +1,23 @@
-name: Deploy to Hostinger
+# name: Deploy to Hostinger
 
-on:
-  push:
-    branches:
-      - master  # Déclenche le workflow lorsque des changements sont poussés à la branche "main"
+# on:
+#   push:
+#     branches:
+#       - master  # Déclenche le workflow lorsque des changements sont poussés à la branche "main"
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
 
-    - name: Deploy to Hostinger
-      uses: easingthemes/ssh-deploy@v2.1.5
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        SOURCE: "./"  # Le répertoire source contenant vos fichiers
-        REMOTE_HOST: "slategrey-dinosaur-203820.hostingersite.com"  # Remplacez par votre hôte FTP
-        REMOTE_USER: ${{ secrets.REMOTE_USER }}
-        TARGET: "/public_html"
+#     - name: Deploy to Hostinger
+#       uses: easingthemes/ssh-deploy@v2.1.5
+#       env:
+#         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#         SOURCE: "./"  # Le répertoire source contenant vos fichiers
+#         REMOTE_HOST: "slategrey-dinosaur-203820.hostingersite.com"  # Remplacez par votre hôte FTP
+#         REMOTE_USER: ${{ secrets.REMOTE_USER }}
+#         TARGET: "/public_html"
