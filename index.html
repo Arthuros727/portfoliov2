@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fusée en Vol</title>
+    <title>Arthur Guerin</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,19 +32,36 @@
         </div>
     </div>
 
+    <div class="container2">
+        <div class="about">
+            <p id="titleabout">about me</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tenetur tempore et unde perferendis placeat quia esse ipsa iusto accusamus quo rerum vero laboriosam, autem recusandae illum quaerat nihil. Architecto?</p>
+        </div>
+    </div>
+
   <script>
-    // JavaScript to handle individual animations
-    const spans = document.querySelectorAll('.name p span');
+   const spans = document.querySelectorAll('.name p span');
 
-    spans.forEach(span => {
-      span.addEventListener('mouseover', function() {
-        span.style.animation = 'roll 0.5s forwards';
-      });
+spans.forEach(span => {
+  span.addEventListener('mouseover', function() {
+    span.style.animation = 'roll 0.5s forwards';
+  });
 
-      span.addEventListener('animationend', function() {
-        span.style.animation = '';
-      });
-    });
+  span.addEventListener('animationend', function() {
+    span.style.animation = '';
+  });
+});
+
+
+setTimeout(() => {
+    const aboutSection = document.querySelector('.about');
+    const rect = aboutSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+        aboutSection.classList.add('visible');
+    }
+
+}, "200");
+
   </script>
 </body>
 </html>

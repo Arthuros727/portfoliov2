@@ -78,6 +78,37 @@ body {
     transition: transform 0.3s;
 }
 
+.container2 {
+    margin-top: 2%;
+    display: flex;
+    justify-content: flex-end; /* Pour aligner les éléments à droite */
+    width: 100%;
+    padding: 20px;
+}
+.about {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    width: 55%; /* 2/3 de la largeur de l'écran */
+    color: white;
+    font-family: "Tajawal", sans-serif;
+    padding: 20px;
+}
+
+.about.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#titleabout {
+    text-align: end;
+    padding: 9px;
+    font-size: 2em;
+
+
+}
+
+
 @keyframes roll {
     from {
         transform: rotateX(0deg);
@@ -86,3 +117,52 @@ body {
         transform: rotateX(360deg);
     }
 }
+
+@media (max-width: 1000px) {
+   .icon{
+    display: none;
+   }
+
+   .container {
+    flex-direction: column;
+}
+.name {
+    font-size: 4.5em; /* Ajuster la taille de la police pour les petits écrans */
+}
+.icon {
+    justify-content: center; /* Centrer les icônes en dessous de .name */
+}
+
+
+.container2 {
+    margin-top: -12%;
+    display: flex;
+    justify-content: flex-end; /* Pour aligner les éléments à droite */
+    width: 100%;
+    padding: 20px;
+}
+.about {
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    width: 100%;
+    color: white;
+    font-family: "Tajawal", sans-serif;
+    padding: 20px;
+}
+
+.about.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#titleabout {
+    text-align: center;
+    padding: 9px;
+    font-size: 2em;
+
+
+}
+}
+
