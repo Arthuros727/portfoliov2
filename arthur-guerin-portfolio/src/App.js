@@ -129,8 +129,7 @@ function App() {
       <div
         className={`content-wrapper ${initialLoad ? 'initial-load' : transitioning ? 'transitioning' : ''} ${currentSection === 1 ? 'show' : ''}`}
         ref={(el) => (sectionsRefs.current[1] = el)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        
       >
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
