@@ -42,7 +42,7 @@ jobs:
             cd domains/arthur-guerin.dev/public_html/VegasFolio/folio/build
 
           sudo cp * /
-          secrets.SECRET
+          ${{ secrets.SECRET }}
 
             
             exit
