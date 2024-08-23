@@ -37,7 +37,7 @@ jobs:
             cd arthur-guerin-portfolio
             npm install
             npm run build
-            serve -s build -l 80
+            PORT=27565 serve -s build -l $PORT &
             exit
           EOF
 
