@@ -37,5 +37,8 @@ jobs:
             cd arthur-guerin-portfolio
             npm install
             npm run build
+            serve -s build -l 80
             exit
           EOF
+
+          rsync -avz -e "ssh -p 65002" ./build/ u903679210@213.130.145.114:/domains/arthur-guerin.dev/public_html/VegasFolio/folio
