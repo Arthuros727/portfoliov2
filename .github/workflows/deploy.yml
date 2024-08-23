@@ -3,7 +3,7 @@ name: Deploy to Hostinger
 on:
   push:
     branches:
-      - master 
+      - master  
 
 jobs:
   deploy:
@@ -21,7 +21,8 @@ jobs:
       - name: Deploy to Hostinger
         env:
           HOSTINGER_USER: u903679210
-          HOSTINGER_HOST: 65002
+          HOSTINGER_HOST: 213.130.145.114
+          HOSTINGER_PORT: 65002
           PROJECT_DIR: /arthur-guerin-portfolio
         run: |
           ssh -o StrictHostKeyChecking=no $HOSTINGER_USER@$HOSTINGER_HOST << 'EOF'
