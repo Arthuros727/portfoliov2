@@ -35,7 +35,7 @@ jobs:
           HOSTINGER_USER: u903679210
           HOSTINGER_HOST: 213.130.145.114
           HOSTINGER_PORT: 65002
-          PROJECT_DIR: /domains/arthur-guerin.dev/public_html/VegasFolio/folio
+          PROJECT_DIR: domains/arthur-guerin.dev/public_html/VegasFolio/folio
         run: |
           # Synchroniser les fichiers avec rsync au lieu de scp pour plus de robustesse
           rsync -avz -e "ssh -p $HOSTINGER_PORT" ./arthur-guerin-portfolio/build/ $HOSTINGER_USER@$HOSTINGER_HOST:$PROJECT_DIR
