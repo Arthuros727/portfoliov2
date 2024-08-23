@@ -15,7 +15,7 @@ jobs:
 
       - name: Build project
         run: |
-          ls
+          cd arthur-guerin-portfolio
           npm install
           npm run build
 
