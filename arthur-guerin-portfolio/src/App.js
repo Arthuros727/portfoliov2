@@ -106,13 +106,7 @@ function App() {
       }
     };
   }, [currentSection, scrollCooldown]); 
-  const handleMouseEnter = () => {
-    setIsMouseOverCarousel(true);
-  };
 
-  const handleMouseLeave = () => {
-    setIsMouseOverCarousel(false);
-  };
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
