@@ -37,4 +37,5 @@ jobs:
             cd arthur-guerin-portfolio
             npm install
             npm run build
+            exit
           EOF
