@@ -25,7 +25,7 @@ jobs:
           HOSTINGER_PORT: 65002
           PROJECT_DIR: /arthur-guerin-portfolio
         run: |
-          ssh -o StrictHostKeyChecking=no u903679210@213.130.145.114 << 'EOF'
+          ssh -tt u903679210@213.130.145.114 << 'EOF'
             cd $PROJECT_DIR
             git pull
             npm install
