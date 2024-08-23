@@ -25,8 +25,8 @@ jobs:
           HOSTINGER_PORT: 65002
           PROJECT_DIR: /arthur-guerin-portfolio
         run: |
-          ssh -tt u903679210@213.130.145.114 << 'EOF'
-            cd $PROJECT_DIR
+          ssh -tt -p 65002 u903679210@213.130.145.114 << 'EOF'
+            cd /arthur-guerin-portfolio
             git pull
             npm install
             npm run build
