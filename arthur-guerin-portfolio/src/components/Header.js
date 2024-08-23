@@ -11,11 +11,11 @@ const Header = () => {
         </div>
         <div className="right-section">
           <a href="mailto:tonemail@example.com">
-            <img src='.mail.png' alt="Mail" />
+            <img src='mail.png' alt="Mail" />
           </a>
           <div className="divider"></div>
           <a href="https://github.com/tonprofil" target="_blank" rel="noopener noreferrer">
-            <img src=".githubo.png" alt="GitHub" />
+            <img src="githubo.png" alt="GitHub" />
           </a>
         </div>
       </header>
