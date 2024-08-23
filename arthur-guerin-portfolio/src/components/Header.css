@@ -38,3 +38,24 @@
     margin: 0 10px;
   }
   
+  @media (max-width: 1000px) {
+    .header {
+      width: 100%;
+    }
+  
+    .left-section {
+      font-size: 50%;
+      width: 100%; /* Prendre toute la largeur */
+      display: flex; /* Utilisation de flexbox pour centrer le texte */
+      align-items: center; /* Centrer verticalement */
+      justify-content: center; /* Centrer horizontalement */
+      /* background-color: red; Si vous souhaitez un fond rouge pour la section entière */
+      padding: 0; /* Supprimer le padding par défaut si nécessaire */
+    }
+    
+
+    .right-section {
+      display: none;
+    }
+    
+  }

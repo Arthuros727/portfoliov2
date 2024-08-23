@@ -37,3 +37,22 @@ body{
 
 
 
+@media (max-width: 1000px) {
+  .content-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+  }
+
+  /* Styles pour une mise en page verticale */
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

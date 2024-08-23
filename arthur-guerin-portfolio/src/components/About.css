@@ -56,3 +56,36 @@
   margin-right: 3.5%; 
   margin-left: -2%;
 }
+
+@media (max-width: 1000px) {
+  #titleabout {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-left: 2vh;
+
+   
+  }
+
+  .section.about {
+    padding: 20px;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-image {
+   display: none;
+  }
+
+  #about-text {
+    
+    line-height: 1.3em;
+    color: #ffffff;
+    text-align:center;
+    flex: 1;
+    word-break:unset; 
+  }
+}
