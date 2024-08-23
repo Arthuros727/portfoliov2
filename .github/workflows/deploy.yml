@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Build project
+        run: |
+          npm install
+          npm run build
+
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.5.4
         with:
@@ -23,7 +28,6 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -p 65002 213.130.145.114 >> ~/.ssh/known_hosts
 
-
       - name: Deploy to Hostinger
         env:
           HOSTINGER_USER: u903679210
@@ -31,14 +35,14 @@ jobs:
           HOSTINGER_PORT: 65002
           PROJECT_DIR: /domains/arthur-guerin.dev/public_html/VegasFolio/folio
         run: |
-          ssh -tt -p 65002 u903679210@213.130.145.114 << 'EOF'
-            cd domains/arthur-guerin.dev/public_html/VegasFolio/folio/
-            git pull
-            cd arthur-guerin-portfolio
-            npm install
-            npm run build
+          scp -P $HOSTINGER_PORT -r ./build/* $HOSTINGER_USER@$HOSTINGER_HOST:$PROJECT_DIR
+
+          ssh -tt -p $HOSTINGER_PORT $HOSTINGER_USER@$HOSTINGER_HOST << 'EOF'
+            cd /domains/arthur-guerin.dev/public_html/VegasFolio/folio
+
+            pkill -f "serve" || true
+
             PORT=27565 serve -s build -l $PORT &
+            echo "Serving on port $PORT"
             exit
           EOF
-
-          rsync -avz -e "ssh -p 65002" ./build/ u903679210@213.130.145.114:/domains/arthur-guerin.dev/public_html/VegasFolio/folio
