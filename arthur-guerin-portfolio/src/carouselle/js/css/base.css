@@ -57,6 +57,8 @@ body {
   --admonition-danger-rgb-value: 220, 38, 38;
 }
 .theme-dark {
+  overflow: hidden;
+
     z-index: 50000;
     background-color: black;
   --brand-primary: rgb(138, 180, 248);

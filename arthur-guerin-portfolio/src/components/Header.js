@@ -7,7 +7,7 @@ const Header = () => {
     return (
       <header className="header">
         <div className="left-section">
-          <h1>Arthuzazr Guerin</h1>
+          <h1>Arthur Guerin</h1>
         </div>
         <div className="right-section">
           <a href="mailto:tonemail@example.com">

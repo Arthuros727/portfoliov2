@@ -14,6 +14,7 @@ function App() {
   const [initialLoad, setInitialLoad] = useState(true);
   const [isMouseOverCarousel, setIsMouseOverCarousel] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [scrollCooldown, setScrollCooldown] = useState(false); 
   const changeTimeout = useRef(null);
   const sectionsRefs = useRef([]);
   const touchStartY = useRef(0);
@@ -25,22 +26,16 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      if (window.innerWidth <= 1000) return; // Désactiver le défilement pour les écrans de moins de 1000px de largeur
+      if (window.innerWidth <= 1000 || scrollCooldown) return; 
+
+      setScrollCooldown(true); 
+      setTimeout(() => setScrollCooldown(false), 350); 
 
       if (changeTimeout.current) {
         clearTimeout(changeTimeout.current);
       }
 
-      if (isMouseOverCarousel && sectionsRefs.current[1] && currentSection === 1) {
-        event.preventDefault();
-        event.stopPropagation();
-        const carouselEvent = new WheelEvent('wheel', {
-          deltaY: event.deltaY,
-          bubbles: true,
-          cancelable: true,
-        });
-        sectionsRefs.current[1].dispatchEvent(carouselEvent);
-      } else {
+     
         const newSection = event.deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
 
         if (newSection !== currentSection) {
@@ -60,7 +55,7 @@ function App() {
             setCurrentSection(newSection);
           }, 1); 
         }
-      }
+      
     };
 
     const handleTouchStart = (event) => {
@@ -68,12 +63,15 @@ function App() {
     };
 
     const handleTouchMove = (event) => {
-      if (window.innerWidth > 1000) return; // Désactiver le défilement tactile pour les écrans de plus de 1000px de largeur
+      if (window.innerWidth > 1000 || scrollCooldown) return; 
+
+      setScrollCooldown(true); 
+      setTimeout(() => setScrollCooldown(false), 350); 
 
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
 
-      if (Math.abs(deltaY) > 30) { // Seuil pour déterminer un balayage
+      if (Math.abs(deltaY) > 30) { 
         const newSection = deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
         if (newSection !== currentSection) {
           setTransitioning(true);
@@ -108,8 +106,7 @@ function App() {
         clearTimeout(changeTimeout.current);
       }
     };
-  }, [isMouseOverCarousel, currentSection]);
-
+  }, [currentSection, scrollCooldown]); 
   const handleMouseEnter = () => {
     setIsMouseOverCarousel(true);
   };
