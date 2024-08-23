@@ -12,7 +12,6 @@ function App() {
   const [currentSection, setCurrentSection] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
-  const [isMouseOverCarousel, setIsMouseOverCarousel] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [scrollCooldown, setScrollCooldown] = useState(false); 
   const changeTimeout = useRef(null);
