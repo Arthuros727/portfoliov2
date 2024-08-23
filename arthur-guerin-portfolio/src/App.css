@@ -1,0 +1,39 @@
+body{
+  background-color: black;
+  overflow: hidden;
+}
+
+.App {
+  position: relative;
+  overflow: hidden; 
+}
+
+.overlay-container {
+  position: relative;
+}
+
+
+.content-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none; /* Initialement, toutes les sections sont cachées */
+}
+
+.content-wrapper.show {
+  display: block; /* Lorsque la section doit apparaître, on l'affiche */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-wrapper.transitioning-hide {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.content-wrapper.initial-load {
+  transition: none;
+}
+
+
+
