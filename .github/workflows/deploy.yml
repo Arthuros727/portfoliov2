@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build projects
+      - name: Build projectss
         run: |
           cd arthur-guerin-portfolio
           npm install
