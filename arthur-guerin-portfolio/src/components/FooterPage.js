@@ -1,6 +1,6 @@
 import React from 'react';
 import './FooterPage.css';
-import { FaDownload, FaGithub } from 'react-icons/fa'; // Assurez-vous d'avoir installé react-icons
+import { FaDownload } from 'react-icons/fa'; // Assurez-vous d'avoir installé react-icons
 
 const FooterPage = () => {
   return (
