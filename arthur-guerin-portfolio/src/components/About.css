@@ -88,4 +88,14 @@
     flex: 1;
     word-break:unset; 
   }
+
+  @media (max-height: 950px) {
+    #about-text {
+
+    font-size: 140%;
+  }
+
+}
+
+
 }
