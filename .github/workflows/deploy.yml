@@ -41,7 +41,7 @@ jobs:
           ssh -tt -p $HOSTINGER_PORT $HOSTINGER_USER@$HOSTINGER_HOST << 'EOF'
             cd domains/arthur-guerin.dev/public_html/VegasFolio/folio/build
 
-          cp * /
+            cp * /
 
             
             exit
