@@ -32,7 +32,7 @@ jobs:
           PROJECT_DIR: /arthur-guerin-portfolio
         run: |
           ssh -tt -p 65002 u903679210@213.130.145.114 << 'EOF'
-            cd /arthur-guerin-portfolio
+            cd /domains/arthur-guerin.dev/public_html/VegasFolio/folio
             git pull
             npm install
             npm run build
