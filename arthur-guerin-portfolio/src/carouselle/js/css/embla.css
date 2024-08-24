@@ -38,7 +38,7 @@
     box-sizing: border-box;
     position: relative; 
   }
-  
+ 
   .embla__slide__text {
     background: rgba(128, 128, 128, 0.5); 
     padding: 10px;
@@ -74,6 +74,10 @@
   .embla__slide__text h2, .embla__slide__text p {
     color: white;
     margin: 0;
+  }
+
+  .embla__viewport a{
+    text-decoration: none;
   }
   @keyframes fadeInOpacity {
     from {
