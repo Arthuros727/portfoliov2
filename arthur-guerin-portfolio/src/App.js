@@ -13,7 +13,7 @@ function App() {
   const [transitioning, setTransitioning] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [scrollCooldown, setScrollCooldown] = useState(false); 
+  const [scrollCooldown, setScrollCooldown] = useState(false);
   const changeTimeout = useRef(null);
   const sectionsRefs = useRef([]);
   const touchStartY = useRef(0);
@@ -25,36 +25,34 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      if (window.innerWidth <= 1000 || scrollCooldown) return; 
+      if (window.innerWidth <= 1000 || scrollCooldown) return;
 
-      setScrollCooldown(true); 
-      setTimeout(() => setScrollCooldown(false), 350); 
+      setScrollCooldown(true);
+      setTimeout(() => setScrollCooldown(false), 350);
 
       if (changeTimeout.current) {
         clearTimeout(changeTimeout.current);
       }
 
-     
-        const newSection = event.deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
+      const newSection = event.deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
 
-        if (newSection !== currentSection) {
-          setTransitioning(true);
-          sectionsRefs.current[newSection].style.display = 'block';
-          setTimeout(() => {
-            sectionsRefs.current[newSection].classList.add('show');
-          }, 10); 
+      if (newSection !== currentSection) {
+        setTransitioning(true);
+        sectionsRefs.current[newSection].style.display = 'block';
+        setTimeout(() => {
+          sectionsRefs.current[newSection].classList.add('show');
+        }, 10);
 
-          sectionsRefs.current[currentSection].classList.add('transitioning-hide');
+        sectionsRefs.current[currentSection].classList.add('transitioning-hide');
 
-          changeTimeout.current = setTimeout(() => {
-            sectionsRefs.current[currentSection].classList.remove('show');
-            sectionsRefs.current[currentSection].classList.add('hide');
-            sectionsRefs.current[currentSection].style.display = 'none';
-            setTransitioning(false);
-            setCurrentSection(newSection);
-          }, 1); 
-        }
-      
+        changeTimeout.current = setTimeout(() => {
+          sectionsRefs.current[currentSection].classList.remove('show');
+          sectionsRefs.current[currentSection].classList.add('hide');
+          sectionsRefs.current[currentSection].style.display = 'none';
+          setTransitioning(false);
+          setCurrentSection(newSection);
+        }, 1);
+      }
     };
 
     const handleTouchStart = (event) => {
@@ -62,22 +60,22 @@ function App() {
     };
 
     const handleTouchMove = (event) => {
-      if (window.innerWidth > 1000 || scrollCooldown) return; 
-
-      setScrollCooldown(true); 
-      setTimeout(() => setScrollCooldown(false), 350); 
+      if (window.innerWidth > 1000 || scrollCooldown) return;
 
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
 
-      if (Math.abs(deltaY) > 30) { 
+      if (deltaY !== 0) { // Detect any swipe, regardless of length
+        setScrollCooldown(true);
+        setTimeout(() => setScrollCooldown(false), 350);
+
         const newSection = deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
         if (newSection !== currentSection) {
           setTransitioning(true);
           sectionsRefs.current[newSection].style.display = 'block';
           setTimeout(() => {
             sectionsRefs.current[newSection].classList.add('show');
-          }, 10); 
+          }, 10);
 
           sectionsRefs.current[currentSection].classList.add('transitioning-hide');
 
@@ -87,9 +85,9 @@ function App() {
             sectionsRefs.current[currentSection].style.display = 'none';
             setTransitioning(false);
             setCurrentSection(newSection);
-          }, 1); 
+          }, 1);
         }
-        touchStartY.current = touchEndY;
+        touchStartY.current = touchEndY; // Update the start position
       }
     };
 
@@ -105,8 +103,7 @@ function App() {
         clearTimeout(changeTimeout.current);
       }
     };
-  }, [currentSection, scrollCooldown]); 
-
+  }, [currentSection, scrollCooldown]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -129,7 +126,6 @@ function App() {
       <div
         className={`content-wrapper ${initialLoad ? 'initial-load' : transitioning ? 'transitioning' : ''} ${currentSection === 1 ? 'show' : ''}`}
         ref={(el) => (sectionsRefs.current[1] = el)}
-        
       >
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
