@@ -30,7 +30,7 @@ const EmblaCarousel = (props) => {
         <div className="embla__container">
           {slides.map((_, index) => (
             <div className="embla__slide" key={index}>
-              <a href={slideData[index].url} target='_blank'>
+              <a href={slideData[index].url} target='_blank' rel="noreferrer">
               <div
                 className="embla__slide__background"
                 style={{ backgroundImage: `url(${slideData[index].imageUrl})` }}
