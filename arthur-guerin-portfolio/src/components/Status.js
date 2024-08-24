@@ -17,8 +17,7 @@ const Status = () => {
           </a>
         </div>
         <div className="status-text">
-          Arthur Guerin, jeune développeur web full stack, diplômé de la Web@cadémie d'Epitech et est actuellement en master 1 Pre-MSc (Epitech). J'aime créer des choses, et résoudre des problèmes avec le code !
-        </div>
+        Après avoir passé 2 ans à la WebAcademie, j'ai appris à développer et intégrer des solutions web, ainsi qu'à les déployer. Mes objectifs futurs seraient d'enrichir mes connaissances dans le développement (web ou non) et de pouvoir me diversifier.        </div>
       </div>
       <p id="Com">Commentaire ↓</p>
     </div>
