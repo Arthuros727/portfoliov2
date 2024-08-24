@@ -89,6 +89,11 @@
     word-break:unset; 
   }
 
+  #projects-note {
+   
+    margin-right: 0px; 
+  }
+
   @media (max-height: 950px) {
     #about-text {
 
