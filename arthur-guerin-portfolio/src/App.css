@@ -38,6 +38,10 @@ body{
 
 
 @media (max-width: 1000px) {
+
+  body{
+    overflow:scroll;
+  }
   .content-wrapper {
     opacity: 1;
     transform: translateY(0);

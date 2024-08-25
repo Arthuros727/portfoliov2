@@ -1,0 +1,101 @@
+.footer-container {
+    padding: 20px;
+    background-color: #000000;
+    border-top: 1px solid #000000;
+    text-align: center;
+    margin-top: 15vh;
+  }
+  
+#commentaire{
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-left: 80%;
+}
+
+  .comment-form {
+    margin-bottom: 20px;
+    margin-left: 11%;
+  }
+  
+  .comment-textarea {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #000000;
+    border: solid 2px white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20vh;
+    margin-bottom: 2vh;
+  }
+  
+  .submit-button:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+  
+  .comments-list {
+    max-height: 400px;
+    overflow-y: auto; 
+    max-width: 80%;
+    margin: 0 auto;
+    margin-left: 16%;
+    text-align: left;
+    padding: 10px; 
+  }
+  
+  .comment-item {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 1000px) {
+    #commentaire{
+
+        margin-left: 50%;
+
+    }
+
+    .footer-container {
+        margin-top: 1vh;
+        margin-right: 30%;
+        width: 100%;
+      }
+
+      .comment-textarea {
+        width: 150%;
+        /* height: 100px; */
+        /* padding: 10px; */
+        
+      }
+
+      .comments-list {
+        max-width: 100%;
+        width: 100%;
+        /* margin: 0 auto; */
+        margin-left: 30%;
+        text-align: left;
+        padding: 10px; 
+      }
+
+      .submit-button {
+        margin-left: 60%;
+        margin-bottom: 2vh;
+      }
+  }
