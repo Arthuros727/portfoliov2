@@ -26,7 +26,7 @@ try {
 
     if ($stmt->execute()) {
         http_response_code(201); 
-        echo json_encode(["message" => "Commentaire enregistré avec succès"]);
+        echo json_encode(["message" => "Commentaire enregistré avec succès !"]);
     } else {
         http_response_code(500); 
         echo json_encode(["message" => "Erreur lors de l'enregistrement du commentaire"]);
