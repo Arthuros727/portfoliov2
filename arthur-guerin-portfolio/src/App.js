@@ -17,6 +17,7 @@ function App() {
   const changeTimeout = useRef(null);
   const sectionsRefs = useRef([]);
   const touchStartY = useRef(0);
+  const commentsRef = useRef(null); 
 
   useEffect(() => {
     const timer = setTimeout(() => setInitialLoad(false), 1000);
@@ -25,33 +26,41 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      if (window.innerWidth <= 1000 || scrollCooldown) return;
+      if (window.innerWidth > 1000) {
+       
+        if (commentsRef.current && commentsRef.current.contains(event.target)) {
+          event.stopPropagation();
+          return;
+        }
 
-      setScrollCooldown(true);
-      setTimeout(() => setScrollCooldown(false), 350);
+        if (scrollCooldown) return;
 
-      if (changeTimeout.current) {
-        clearTimeout(changeTimeout.current);
-      }
+        setScrollCooldown(true);
+        setTimeout(() => setScrollCooldown(false), 350);
 
-      const newSection = event.deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
+        if (changeTimeout.current) {
+          clearTimeout(changeTimeout.current);
+        }
 
-      if (newSection !== currentSection) {
-        setTransitioning(true);
-        sectionsRefs.current[newSection].style.display = 'block';
-        setTimeout(() => {
-          sectionsRefs.current[newSection].classList.add('show');
-        }, 10);
+        const newSection = event.deltaY > 0 ? Math.min(currentSection + 1, 3) : Math.max(currentSection - 1, 0);
 
-        sectionsRefs.current[currentSection].classList.add('transitioning-hide');
+        if (newSection !== currentSection) {
+          setTransitioning(true);
+          sectionsRefs.current[newSection].style.display = 'block';
+          setTimeout(() => {
+            sectionsRefs.current[newSection].classList.add('show');
+          }, 10);
 
-        changeTimeout.current = setTimeout(() => {
-          sectionsRefs.current[currentSection].classList.remove('show');
-          sectionsRefs.current[currentSection].classList.add('hide');
-          sectionsRefs.current[currentSection].style.display = 'none';
-          setTransitioning(false);
-          setCurrentSection(newSection);
-        }, 1);
+          sectionsRefs.current[currentSection].classList.add('transitioning-hide');
+
+          changeTimeout.current = setTimeout(() => {
+            sectionsRefs.current[currentSection].classList.remove('show');
+            sectionsRefs.current[currentSection].classList.add('hide');
+            sectionsRefs.current[currentSection].style.display = 'none';
+            setTransitioning(false);
+            setCurrentSection(newSection);
+          }, 1);
+        }
       }
     };
 
@@ -60,12 +69,19 @@ function App() {
     };
 
     const handleTouchMove = (event) => {
-      if (window.innerWidth > 1000 || scrollCooldown) return;
+      if (window.innerWidth <= 1000) return; 
+
+      if (commentsRef.current && commentsRef.current.contains(event.target)) {
+        event.stopPropagation();
+        return;
+      }
+
+      if (scrollCooldown) return;
 
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
 
-      if (deltaY !== 0) { // Detect any swipe, regardless of length
+      if (deltaY !== 0) { 
         setScrollCooldown(true);
         setTimeout(() => setScrollCooldown(false), 350);
 
@@ -87,7 +103,7 @@ function App() {
             setCurrentSection(newSection);
           }, 1);
         }
-        touchStartY.current = touchEndY; // Update the start position
+        touchStartY.current = touchEndY; 
       }
     };
 
@@ -139,7 +155,7 @@ function App() {
         className={`content-wrapper ${initialLoad ? 'initial-load' : transitioning ? 'transitioning' : ''} ${currentSection === 3 ? 'show' : ''}`}
         ref={(el) => (sectionsRefs.current[3] = el)}
       >
-        <FooterPage />
+        <FooterPage commentsRef={commentsRef} /> 
       </div>
     </div>
   );

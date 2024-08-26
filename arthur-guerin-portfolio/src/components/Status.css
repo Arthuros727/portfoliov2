@@ -116,7 +116,9 @@
     padding: 20px;
     box-sizing: border-box;
     margin-top: 2vh;
-    margin-left: 2vh;
+    margin-left: 0vh;
+    margin-right: 4vh;
+
   }
 
   .status-content {

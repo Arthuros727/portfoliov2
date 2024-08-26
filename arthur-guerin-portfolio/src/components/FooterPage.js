@@ -43,7 +43,7 @@ const FooterPage = ({ commentsRef }) => {
   }, []);
 
   return (
-    <div className="footer-container" ref={commentsRef}>
+    <div className="footer-container">
     <p id='commentaire'>Laissez un commentaire !</p>
       <form className="comment-form" onSubmit={handleSubmit}>
         <textarea
@@ -52,10 +52,10 @@ const FooterPage = ({ commentsRef }) => {
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Écrivez votre commentaire ici..."
         />
-      </form>
         <button type="submit" className="submit-button">Envoyer</button>
+      </form>
       
-      <div className="comments-list">
+      <div className="comments-list" ref={commentsRef}>
         {comments.map((comment, index) => (
           <div key={index} className="comment-item">
             {comment.data}
