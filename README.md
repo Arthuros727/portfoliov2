@@ -1,9 +1,9 @@
 PORTFOLIO WEB REACT
 Description
 
-Ce projet est un site web interactif utilisant React. Il présente un design à défilement vertical entre plusieurs sections avec un carrousel intégré dans l'une des sections. Le site permet également de basculer entre un mode sombre et un mode clair. Les fonctionnalités de défilement sont gérées à l'aide de la molette de la souris et des gestes tactiles.
-Fonctionnalités
+Ce projet est un site web interactif utilisant React. Il présente un design à défilement vertical entre plusieurs sections avec un carrousel intégré dans l'une des sections. Les fonctionnalités de défilement sont gérées à l'aide de la molette de la souris et des gestes tactiles.
 
+Fonctionnalités:
 Défilement entre Sections : Utilisation de la molette de la souris ou de gestes tactiles pour naviguer entre différentes sections du site.
 Carrousel : Affichage d'un carrousel d'images ou de contenu avec des options de navigation.
 
@@ -15,21 +15,17 @@ Technologies Utilisées
 
 Installation
 
-    Clonez le dépôt
+Clonez le dépôt
 
-    bash
+    
 
-git clone 
+    git clone 
 
 Accédez au répertoire du projet
 
-bash
-
-cd Portfolio
+    cd Portfolio
 
 Installez les dépendances
-
-bash
 
     npm install
 
@@ -37,16 +33,13 @@ Démarrage du Projet
 
 Pour démarrer le projet en mode développement, utilisez la commande suivante :
 
-bash
-
-npm start ou npm run start
+    npm start ou npm run start
 
 Cela ouvrira le site dans votre navigateur par défaut à l'adresse http://localhost:3000.
 Utilisation
 
     Défilement : Utilisez la molette de la souris ou faites défiler avec un geste tactile pour naviguer entre les sections du site.
     Carrousel : Interagissez avec les contrôles du carrousel pour faire défiler les éléments.
-    Changement de Thème : Cliquez sur le bouton "Toggle Theme" pour passer du mode sombre au mode clair.
 
 Structure du Projet
 
@@ -57,3 +50,5 @@ Structure du Projet
         App.css : Styles globaux pour l'application.
 
 Pour le BackEnd, modifier les liens d'apelle api dans le module de Commentaire, crée votre db et des template de fichier api que j'ai fais sont dans le dossier Back-end, vous devrez les modifier !
+
+Vous pouvez aussi acceder au site en ligne directement a cette adresse : arthur-guerin.dev
