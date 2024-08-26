@@ -1,4 +1,4 @@
-Projet de Site Web à Défilement Vertical avec Carrousel
+PORTFOLIO WEB REACT
 Description
 
 Ce projet est un site web interactif utilisant React. Il présente un design à défilement vertical entre plusieurs sections avec un carrousel intégré dans l'une des sections. Le site permet également de basculer entre un mode sombre et un mode clair. Les fonctionnalités de défilement sont gérées à l'aide de la molette de la souris et des gestes tactiles.
