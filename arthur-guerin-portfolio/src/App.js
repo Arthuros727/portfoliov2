@@ -14,10 +14,11 @@ function App() {
   const [initialLoad, setInitialLoad] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [scrollCooldown, setScrollCooldown] = useState(false);
+  const [scrollLocked, setScrollLocked] = useState(false); 
   const changeTimeout = useRef(null);
   const sectionsRefs = useRef([]);
   const touchStartY = useRef(0);
-  const commentsRef = useRef(null); 
+  const commentsRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setInitialLoad(false), 1000);
@@ -27,7 +28,11 @@ function App() {
   useEffect(() => {
     const handleScroll = (event) => {
       if (window.innerWidth > 1000) {
-       
+        if (scrollLocked) return; 
+
+        setScrollLocked(true);
+        setTimeout(() => setScrollLocked(false), 1500); 
+
         if (commentsRef.current && commentsRef.current.contains(event.target)) {
           event.stopPropagation();
           return;
@@ -69,7 +74,7 @@ function App() {
     };
 
     const handleTouchMove = (event) => {
-      if (window.innerWidth <= 1000) return; 
+      if (window.innerWidth <= 1000) return;
 
       if (commentsRef.current && commentsRef.current.contains(event.target)) {
         event.stopPropagation();
@@ -81,7 +86,7 @@ function App() {
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
 
-      if (deltaY !== 0) { 
+      if (deltaY !== 0) {
         setScrollCooldown(true);
         setTimeout(() => setScrollCooldown(false), 350);
 
@@ -103,7 +108,7 @@ function App() {
             setCurrentSection(newSection);
           }, 1);
         }
-        touchStartY.current = touchEndY; 
+        touchStartY.current = touchEndY;
       }
     };
 
@@ -119,7 +124,7 @@ function App() {
         clearTimeout(changeTimeout.current);
       }
     };
-  }, [currentSection, scrollCooldown]);
+  }, [currentSection, scrollCooldown, scrollLocked]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -155,7 +160,7 @@ function App() {
         className={`content-wrapper ${initialLoad ? 'initial-load' : transitioning ? 'transitioning' : ''} ${currentSection === 3 ? 'show' : ''}`}
         ref={(el) => (sectionsRefs.current[3] = el)}
       >
-        <FooterPage commentsRef={commentsRef} /> 
+        <FooterPage commentsRef={commentsRef} />
       </div>
     </div>
   );
