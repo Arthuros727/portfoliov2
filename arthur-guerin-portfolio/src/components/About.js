@@ -20,14 +20,16 @@ const About = () => {
         <img id="about-img" src="ht.png" className="about-image" alt="About" />
         <p id="about-text">Arthur Guerin, jeune développeur web full stack, diplômé de la Web@cadémie d'Epitech et est actuellement en master 1 Pre-MSc (Epitech). J'aime créer des choses, et résoudre des problèmes avec le code !</p>
       </animated.div>
+
       <animated.p
         style={noteSpring}
         id="projects-note"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-      >
+        >
         Quelques projets ↓
       </animated.p> 
+        
     </div>
   );
 };

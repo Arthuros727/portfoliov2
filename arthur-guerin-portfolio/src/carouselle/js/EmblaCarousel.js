@@ -25,7 +25,7 @@ const EmblaCarousel = (props) => {
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla">
+    <section className="embla" id='embla'>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((_, index) => (

@@ -11,7 +11,7 @@ const Status = () => {
       <div className="status-content">
         <div className="status-left">
           <img src="target.png" className="status-image" alt="Target" />
-          <a href="/path/to/your/resume.pdf" className="footer-button" download>
+          <a href="CV_Arthur-Guerin.pdf" className="footer-button" download>
             <FaDownload className="footer-icon" />
             Mon CV 
           </a>
