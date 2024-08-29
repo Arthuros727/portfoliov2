@@ -131,7 +131,7 @@ function App() {
   };
 
   const OPTIONS = { axis: 'y' };
-  const SLIDE_COUNT = 5;
+  const SLIDE_COUNT = 4;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
