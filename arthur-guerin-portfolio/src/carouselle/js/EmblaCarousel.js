@@ -9,7 +9,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 // Données des slides
 const slideData = [
-  { title: "Puissance 4", subtitle: "Sous-titre 1", imageUrl: "p4.png",url: "https://github.com/Arthuros727/Puissance4"},
+  { title: "Puissance 4", subtitle: "Reproduction en js + Jquery du jeu puissance 4", imageUrl: "p4.png",url: "https://github.com/Arthuros727/Puissance4"},
   { title: "Spotify", subtitle: "copie de spotify, react/docker, api externe", imageUrl: "flopify.png", url: "https://github.com/Arthuros727/Flopify" },
   { title: "Application Mobile", subtitle: "Application mobile en ReactNative, qui utilise micro, Accelerometre, barrometre + api", imageUrl: "mobile.jpg", url: "https://github.com/EpitechWebAcademiePromo2024/W-WEB-320-PAR-4-2-app-arthur.guerin" },
   { title: "Bot Discord", subtitle: "Bot discord en discordJS, api call", imageUrl: "appmaster.png", url: "https://github.com/Arthuros727/ApexBot" },
